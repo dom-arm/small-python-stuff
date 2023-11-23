@@ -4,7 +4,7 @@ Hello! In this repo you'll find a collection of small Python projects I coded. I
 
 ## Projects
 
-### [Command line Card game ("War")](card_game/)
+### [Command line Card game ("War")](src/card_game/)
 
 #### Description
 
@@ -18,7 +18,7 @@ No external dependencies are required. Simply run the `card_game.py` script to s
 
 ---
 
-### [File Rename Script](file_rename_increment/)
+### [File Rename Script](src/file_rename_increment/)
 
 #### Description
 
@@ -30,7 +30,7 @@ No external dependencies are required. Set the `folder_path` variable to the pat
 
 ---
 
-### [Guess the number Game](guess_number/)
+### [Guessing Number Game](src/guess_number/)
 
 #### Description
 
@@ -46,7 +46,7 @@ Clone the repository:
 
 ```shell
 git clone https://github.com/your-username/small-python-stuff.git
-cd small-python-stuff/card_game
+cd small-python-stuff/src/{project_folder}
 ```
 
 Note: Make sure you have Python installed to run the scripts.
