@@ -5,9 +5,10 @@ class Player:
 
     def play_card(self, num):
         if num == 1:
-            # Add to beginning of face up list
+            # Add one card from stack to face up list
             self.hand.face_up.insert(0, self.hand.stack[num - 1])
         else:
+            # Add num of cards from stack to face up list (face down not yet handled)
             self.hand.face_up += self.hand.stack[:num]
         return self.hand.face_up
 

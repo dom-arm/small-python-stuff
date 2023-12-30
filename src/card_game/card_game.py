@@ -1,3 +1,35 @@
+"""
+## EXPLANATION ##
+
+Card game: War (a variant of the original War card game)
+
+Divide the deck evenly
+Turn up one of each players cards, face up
+-- Scenario 1
+One card is higher than the other
+Add both cards to the player's stack (bottom) who owns the highest card
+Start over by turn up one of each players cards again
+-- Scenario 2
+The card's rank are the same
+War is started*
+-- Scenario 3
+One of the players is out of cards
+The other player wins
+The game ends
+
+-- *War play
+Turn up 3 of each players cards: 1 face up, 2 face down
+-- Scenario 1
+One of the faced up cards is higher than the other
+Add both piles to the player's stack (bottom) who owns the highest card
+The war play ends
+-- Scenario 2
+The card's rank are the same
+- War goes on like:
+Each player turn up 1 more card, face up
+"""
+
+
 from Deck import Deck
 from Hand import Hand
 from Player import Player
@@ -15,14 +47,14 @@ def map_ranks(rank1, rank2):
     return int(rank1), int(rank2)
 
 
-# The higher hand get cards won added to stack. The lower hand have cards lost removed from its stack
+# The higher hand gets its cards won added to its stack. The lower hand have cards lost removed from its stack
 def update_stack(higher, lower):
     higher.hand.add(lower.hand.face_up)
     lower.hand.remove()
 
 
 def compare_cards(tuple1, tuple2, player1, player2):
-    # Last item in "card tuple" is the rank
+    # Last item in the card tuple is the rank
     rank1, rank2 = map_ranks(tuple1[1], tuple2[1])
 
     if rank1 > rank2:
@@ -45,7 +77,7 @@ def start_new_round(num_of_cards, player1, player2):
     print(f"--> {player1.name} plays: {player1_cards}")
     print(f"--> {player2.name} plays: {player2_cards}\n")
 
-    # If card's ranks are equal, it is war
+    # If the cards ranks are equal, it is war
     is_war = compare_cards(player1_cards[0], player2_cards[0], player1, player2)
 
     return is_war
@@ -85,7 +117,7 @@ def main():
             player2.hand.face_up.clear()
             print("The war is over. Back to the regular game!")
 
-        # Debug (or just helpful to see the players stacks)
+        # Debug (or maybe helpful to see the players' stacks)
         print(
             f"--> {player1.name}'s stack: {player1.hand.stack} --> {len(player1.hand.stack)} cards"
         )
